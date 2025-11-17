@@ -22,3 +22,7 @@
 </script>
 
 <h1>Login</h1>
+<input type="email" placeholder="Email" bind:value={email}>
+<input type="password" placeholder="Password" bind:value={password}>
+
+<button on:click={login}>Login</button>
