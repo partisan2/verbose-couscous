@@ -36,6 +36,7 @@ def decode_token(token):
         return None
     
 #----------------Auth Endpoints----------------
+@app.route("/auth/login",methods=["POST"])
 def login():
     data = request.json
     email = data.get("email")
