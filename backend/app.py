@@ -57,20 +57,34 @@ def index():
 # SocketIO event handlers
 @socketio.on('connect', namespace='/customer')
 def handel_customer_connect():
-    customerId = request.sid
-    clients[customerId] = {'role': 'customer'}
-    print(f"server customer {customerId}")
+    token = request.args.get("token")
 
+    user = decode_token(token)
+
+    if not user:
+        print("Invalid token, Disconmecting......")
+        return False
+    
+
+    customerId = user["user_id"]
+    clients[request.sid] = customerId
+
+    print(f"User connected: {customerId} (sid: {request.sid})")
+    
 @socketio.on('disconnect', namespace='/customer')
 def handle_customer_disconnect():
     customerId = request.sid
-    clients.pop(customerId, None)
-    print(f"server customer disconnected {customerId}")
+
+    if customerId in clients:
+        print(f"User disconnected: {clients[customerId]}")
+        del clients[customerId]
 
 @socketio.on('message', namespace='/customer')
 def handle_customer_message(message):
     customerId = request.sid
-    print(f"Received message from customer {customerId}: {message}")
+    user_id = clients[customerId]
+
+    print(f"Received message from customer {user_id}: {message}")
 
     response= get_intent_and_response(message)
     print(f"Sending response to customer {customerId}: {response}")
