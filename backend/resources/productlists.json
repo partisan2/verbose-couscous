@@ -1,0 +1,289 @@
+{
+  "Laptops": [
+    {
+      "id": "PRD-001",
+      "name": "MacBook Air M2 13-inch",
+      "brand": "Apple",
+      "subcategory": "MacBooks",
+      "price": 145000,
+      "specs": {
+        "ram": "8GB",
+        "storage": "256GB SSD",
+        "cpu": "Apple M2",
+        "gpu": "Integrated",
+        "display": "13.6-inch Retina",
+        "battery": "18 hours",
+        "weight": "1.24kg"
+      },
+      "rating": 4.8
+    },
+    {
+      "id": "PRD-002",
+      "name": "MacBook Pro M3 14-inch",
+      "brand": "Apple",
+      "subcategory": "MacBooks",
+      "price": 295000,
+      "specs": {
+        "ram": "16GB",
+        "storage": "512GB SSD",
+        "cpu": "Apple M3",
+        "gpu": "Integrated",
+        "display": "14-inch Liquid Retina XDR",
+        "battery": "20 hours",
+        "weight": "1.55kg"
+      },
+      "rating": 4.9
+    },
+    {
+      "id": "PRD-003",
+      "name": "Dell XPS 13 Plus",
+      "brand": "Dell",
+      "subcategory": "Ultrabooks",
+      "price": 235000,
+      "specs": {
+        "ram": "16GB",
+        "storage": "512GB SSD",
+        "cpu": "Intel Core i7 13th Gen",
+        "gpu": "Intel Iris Xe",
+        "display": "13.4-inch FHD+",
+        "battery": "15 hours",
+        "weight": "1.26kg"
+      },
+      "rating": 4.7
+    },
+    {
+      "id": "PRD-004",
+      "name": "HP Spectre x360 14",
+      "brand": "HP",
+      "subcategory": "Ultrabooks",
+      "price": 210000,
+      "specs": {
+        "ram": "16GB",
+        "storage": "1TB SSD",
+        "cpu": "Intel Core i7 13th Gen",
+        "gpu": "Intel Iris Xe",
+        "display": "14-inch OLED",
+        "battery": "17 hours",
+        "weight": "1.34kg"
+      },
+      "rating": 4.8
+    },
+    {
+      "id": "PRD-005",
+      "name": "Lenovo ThinkPad X1 Carbon Gen 11",
+      "brand": "Lenovo",
+      "subcategory": "Business Laptops",
+      "price": 260000,
+      "specs": {
+        "ram": "16GB",
+        "storage": "512GB SSD",
+        "cpu": "Intel Core i7 12th Gen",
+        "gpu": "Integrated",
+        "display": "14-inch WQHD",
+        "battery": "20 hours",
+        "weight": "1.12kg"
+      },
+      "rating": 4.9
+    }
+  ],
+
+  "Smartphones": [
+    {
+      "id": "PRD-041",
+      "name": "iPhone 15",
+      "brand": "Apple",
+      "subcategory": "iPhones",
+      "price": 285000,
+      "specs": {
+        "ram": "6GB",
+        "storage": "128GB",
+        "cpu": "A16 Bionic",
+        "display": "6.1-inch OLED",
+        "battery": "20 hours",
+        "weight": "171g"
+      },
+      "rating": 4.8
+    },
+    {
+      "id": "PRD-042",
+      "name": "Samsung Galaxy S24 Ultra",
+      "brand": "Samsung",
+      "subcategory": "Android Phones",
+      "price": 320000,
+      "specs": {
+        "ram": "12GB",
+        "storage": "256GB",
+        "cpu": "Snapdragon 8 Gen 3",
+        "display": "6.8-inch AMOLED",
+        "battery": "5000mAh",
+        "weight": "233g"
+      },
+      "rating": 4.9
+    }
+  ],
+
+  "Audio Devices": [
+    {
+      "id": "PRD-071",
+      "name": "Sony WH-1000XM5",
+      "brand": "Sony",
+      "subcategory": "Headphones",
+      "price": 95000,
+      "specs": {
+        "type": "Over-ear",
+        "connectivity": "Bluetooth 5.2",
+        "battery": "30 hours",
+        "weight": "249g"
+      },
+      "rating": 4.9
+    },
+    {
+      "id": "PRD-072",
+      "name": "Apple AirPods Pro 2",
+      "brand": "Apple",
+      "subcategory": "Earbuds",
+      "price": 89000,
+      "specs": {
+        "type": "In-ear",
+        "noiseCancelling": "ANC",
+        "battery": "6 hours",
+        "weight": "5g each"
+      },
+      "rating": 4.8
+    }
+  ],
+
+  "Wearables": [
+    {
+      "id": "PRD-086",
+      "name": "Apple Watch Series 9",
+      "brand": "Apple",
+      "subcategory": "Smartwatches",
+      "price": 140000,
+      "specs": {
+        "display": "1.9-inch OLED",
+        "battery": "18 hours",
+        "connectivity": "GPS",
+        "weight": "42g"
+      },
+      "rating": 4.7
+    },
+    {
+      "id": "PRD-087",
+      "name": "Samsung Galaxy Watch 6",
+      "brand": "Samsung",
+      "subcategory": "Smartwatches",
+      "price": 85000,
+      "specs": {
+        "display": "1.4-inch AMOLED",
+        "battery": "40 hours",
+        "weight": "28g"
+      },
+      "rating": 4.6
+    }
+  ],
+
+  "Cameras": [
+    {
+      "id": "PRD-096",
+      "name": "Canon EOS R10",
+      "brand": "Canon",
+      "subcategory": "Mirrorless Cameras",
+      "price": 225000,
+      "specs": {
+        "sensor": "APS-C",
+        "resolution": "24MP",
+        "video": "4K60",
+        "weight": "429g"
+      },
+      "rating": 4.7
+    },
+    {
+      "id": "PRD-097",
+      "name": "GoPro Hero 12 Black",
+      "brand": "GoPro",
+      "subcategory": "Action Cameras",
+      "price": 120000,
+      "specs": {
+        "video": "5.3K",
+        "waterproof": "10m",
+        "weight": "154g"
+      },
+      "rating": 4.8
+    }
+  ],
+
+  "Gaming": [
+    {
+      "id": "PRD-106",
+      "name": "PlayStation 5 Slim",
+      "brand": "Sony",
+      "subcategory": "Consoles",
+      "price": 225000,
+      "specs": {
+        "storage": "1TB SSD",
+        "fps": "120 FPS",
+        "resolution": "4K"
+      },
+      "rating": 4.9
+    },
+    {
+      "id": "PRD-107",
+      "name": "Xbox Series X",
+      "brand": "Microsoft",
+      "subcategory": "Consoles",
+      "price": 210000,
+      "specs": {
+        "storage": "1TB SSD",
+        "fps": "120 FPS",
+        "resolution": "4K"
+      },
+      "rating": 4.8
+    }
+  ],
+
+  "Smart Home": [
+    {
+      "id": "PRD-116",
+      "name": "Google Nest Audio",
+      "brand": "Google",
+      "subcategory": "Smart Speakers",
+      "price": 28000,
+      "specs": {
+        "assistant": "Google Assistant",
+        "connectivity": "WiFi, Bluetooth",
+        "weight": "1.2kg"
+      },
+      "rating": 4.6
+    },
+    {
+      "id": "PRD-117",
+      "name": "Amazon Echo 5th Gen",
+      "brand": "Amazon",
+      "subcategory": "Smart Speakers",
+      "price": 22000,
+      "specs": {
+        "assistant": "Alexa",
+        "connectivity": "WiFi, Bluetooth",
+        "weight": "900g"
+      },
+      "rating": 4.5
+    }
+  ],
+
+  "Accessories": [
+    {
+      "id": "PRD-120",
+      "name": "Anker 20,000mAh Power Bank",
+      "brand": "Anker",
+      "subcategory": "Power Banks",
+      "price": 15000,
+      "specs": {
+        "capacity": "20,000mAh",
+        "output": "PD 20W",
+        "weight": "350g"
+      },
+      "rating": 4.7
+    }
+  ]
+}
