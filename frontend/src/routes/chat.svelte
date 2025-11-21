@@ -16,24 +16,28 @@
         })
 
         socket.on("message", (msg)=>{
-            messages = [...messages, {from:"bot", text:msg}];
+            messages = [...messages, {from:"Assistant", text:msg}];
         })
     })
 
     function sendMsg() {
-        messages = [...messages, { from: "me", text: input }];
+        messages = [...messages, { from: "Me", text: input }];
         socket.emit("message", input);
         input = "";
     }
 </script>
 
-<h1>Chat</h1>
-
-<div>
-    {#each messages as m}
-        <p><strong>{m.from}:</strong> {m.text}</p>
-    {/each}
+<div class="w-full h-screen bg-gray-200 p-4">
+    <h1 class="text-blue-900 text-3xl py-4">Chat Assistant</h1>
+    
+    <div class="border rounded w-full scroll-y-auto h-4/5 p-4 mb-16">
+        {#each messages as m}
+            <p><strong>{m.from}:</strong> {m.text}</p>
+        {/each}
+    </div>
+    
+    <div class="absolute bottom-5 w-full flex justify-center gap-4">
+        <input class=" px-2 py-2 w-4/5 border-blue-600 border rounded" bind:value={input} placeholder="Type message..." />
+        <button class="bg-blue-900 px-3 py-2 text-white rounded" on:click={sendMsg}>Send</button>
+    </div>
 </div>
-
-<input bind:value={input} placeholder="Type message..." />
-<button on:click={sendMsg}>Send</button>
