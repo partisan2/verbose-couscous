@@ -1,0 +1,111 @@
+[
+  {
+    "order_id": "ORD-1001",
+    "user_id": "user_vihan",
+    "products": [
+      {
+        "product_id": "PRD-001",
+        "quantity": 1
+      }
+    ],
+    "order_status": "Processing",
+    "payment_status": "Paid",
+    "total_amount": 145000,
+    "shipping_address": "No. 21, Main Road, Colombo 03",
+    "estimated_delivery": "2025-01-29",
+    "created_at": "2025-01-25T10:45:00Z",
+    "updated_at": "2025-01-25T10:50:00Z"
+  },
+  {
+    "order_id": "ORD-1002",
+    "user_id": "user_vihan",
+    "products": [
+      {
+        "product_id": "PRD-042",
+        "quantity": 1
+      },
+      {
+        "product_id": "PRD-071",
+        "quantity": 1
+      }
+    ],
+    "order_status": "Shipped",
+    "payment_status": "Paid",
+    "total_amount": 415000,
+    "shipping_address": "45/A, Temple Lane, Kandy",
+    "estimated_delivery": "2025-01-27",
+    "created_at": "2025-01-24T14:20:00Z",
+    "updated_at": "2025-01-25T08:15:00Z"
+  },
+  {
+    "order_id": "ORD-1003",
+    "user_id": "user_vihan",
+    "products": [
+      {
+        "product_id": "PRD-086",
+        "quantity": 1
+      }
+    ],
+    "order_status": "Delivered",
+    "payment_status": "Paid",
+    "total_amount": 120000,
+    "shipping_address": "52/1, Hill Side, Galle",
+    "delivered_on": "2025-01-22",
+    "created_at": "2025-01-20T09:30:00Z",
+    "updated_at": "2025-01-22T17:05:00Z"
+  },
+  {
+    "order_id": "ORD-1004",
+    "user_id": "user_vihan",
+    "products": [
+      {
+        "product_id": "PRD-071",
+        "quantity": 1
+      }
+    ],
+    "order_status": "Cancelled",
+    "payment_status": "Refunded",
+    "total_amount": 95000,
+    "shipping_address": "120/7, Station Road, Negombo",
+    "cancelled_on": "2025-01-23",
+    "created_at": "2025-01-21T13:20:00Z",
+    "updated_at": "2025-01-23T11:00:00Z"
+  },
+  {
+    "order_id": "ORD-1005",
+    "user_id": "user_vihan",
+    "products": [
+      {
+        "product_id": "PRD-003",
+        "quantity": 1
+      },
+      {
+        "product_id": "PRD-072",
+        "quantity": 2
+      }
+    ],
+    "order_status": "Out for Delivery",
+    "payment_status": "Paid",
+    "total_amount": 260000,
+    "shipping_address": "78/4, Lake View, Kurunegala",
+    "estimated_delivery": "2025-01-26",
+    "created_at": "2025-01-23T16:10:00Z",
+    "updated_at": "2025-01-25T07:45:00Z"
+  },
+  {
+    "order_id": "ORD-1006",
+    "user_id": "user_vihan",
+    "products": [
+      {
+        "product_id": "PRD-002",
+        "quantity": 1
+      }
+    ],
+    "order_status": "Pending Payment",
+    "payment_status": "Unpaid",
+    "total_amount": 295000,
+    "shipping_address": "19, Park Street, Colombo 02",
+    "created_at": "2025-01-25T11:50:00Z",
+    "updated_at": "2025-01-25T11:55:00Z"
+  }
+]
