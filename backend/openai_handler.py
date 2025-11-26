@@ -27,6 +27,7 @@ selected_category = None
 def list_products(msg):
     global selected_intent
     selected_intent = "list_products"
+    print("----list products-----")
     return "We have Laptops, Smartphones, Audio Devices, Wearables, Cameras, Gaming, Smart Home and Accessories. What category are you interested in?"
 
 def compare_products(msg):
@@ -68,20 +69,20 @@ def compare_products(msg):
             specs.update(p.get("specs", {}).keys())
 
         # Start response
-        response = f"📊 **Product Comparison**\n{header}\n\n"
+        response = f"📊 Product Comparison\n{header}\n\n"
 
         # Compare main fields
-        response += "### 🔹 General Details\n"
+        response += "🔹 General Details\n"
         for field in fields:
-            row = f"**{field.capitalize()}**:\n"
+            row = f"{field.capitalize()}:\n"
             for p in found_products:
                 row += f"- {p['name']}: {p.get(field, 'N/A')}\n"
             response += row + "\n"
 
         # Compare specs
-        response += "### 🔧 Specifications\n"
+        response += "🔧 Specifications\n"
         for s in specs:
-            row = f"**{s.capitalize()}**:\n"
+            row = f"{s.capitalize()}:\n"
             for p in found_products:
                 val = p.get("specs", {}).get(s, "N/A")
                 row += f"- {p['name']}: {val}\n"
@@ -97,6 +98,7 @@ def compare_products(msg):
 #     return "Could you please tell me which product's pricing you would like to know?"
 
 def order_status(msg):
+    print("------order status---------") 
     try:
         with open('./resources/orders.json','r',encoding='utf-8') as file:
             raw_data = json.load(file)
@@ -108,7 +110,6 @@ def order_status(msg):
                     continue
                 orderLine = f"Order Details: Id:{orderid}, Status: {orderStatus}"
                 orders.append(orderLine)
-            # print("\n".join(orders)) 
             return "\n".join(orders)
     except Exception as e:
         return None
@@ -136,7 +137,7 @@ def get_intent_and_response(message):
         prompt = f"""
         You are a sales assistant that helps customers.
         Your job is to classify the user's message into one of the following intents and generate a short helpful response.
-        Identify the user's intent from: ["list_products", "product_info", "compare_products", "order_status", "return_policy", "product_recommendations","other"].
+        Identify the user's intent from: ["list_products_question", "product_info", "compare_products", "order_status", "return_policy", "product_recommendations","other"].
         Return only the intent.
         User's message: "{message}"
         """
@@ -152,7 +153,7 @@ def get_intent_and_response(message):
         intent = intent_response.choices[0].message.content.strip()
 
         intent_handlers = {
-            "list_products": list_products,
+            "list_products_question": list_products,
             "product_info": product_info,
             "compare_products": compare_products,
             "order_status": order_status,
