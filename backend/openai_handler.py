@@ -102,17 +102,62 @@ def order_status(msg):
     try:
         with open('./resources/orders.json','r',encoding='utf-8') as file:
             raw_data = json.load(file)
-            orders = []
-            for order in raw_data:
-                orderid = order["order_id"]
-                orderStatus = order["order_status"]
-                if orderStatus == "Shipped" or orderStatus == "Delivered" or orderStatus == "Cancelled":
-                    continue
-                orderLine = f"Order Details: Id:{orderid}, Status: {orderStatus}"
-                orders.append(orderLine)
-            return "\n".join(orders)
+        prompt = f"""
+        You are an order status intent detector.
+        User said: "{msg}"
+
+        Identify what the user is requesting.
+        Return ONLY one of the following:
+        - "processing"
+        - "out for delivery"
+        - "pending payment"
+        - "all"
+        If unclear, return "all".
+        """
+        ai_response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[{"role": "user", "content": prompt}]
+        )
+
+        status_needed = ai_response.choices[0].message.content.strip().lower()
+
+        if status_needed not in ["processing", "out for delivery", "pending payment", "all"]:
+            status_needed = "all"
+
+        matched = []
+
+        for order in raw_data:
+            order_status = order.get("order_status", "").lower()
+
+            if status_needed == "all" or order_status == status_needed:
+                matched.append(order)
+        
+        if not matched:
+            return f"No orders found for status: {status_needed}"
+
+        response_lines = [f"Orders with status: {status_needed}\n"]
+
+        for o in matched:
+            response_lines.append(
+                f"Order ID: {o['order_id']}\n"
+                f"Products:"
+            )
+
+            for p in o["products"]:
+                response_lines.append(
+                    f"  - Product ID: {p['product_id']}, Quantity: {p['quantity']}"
+                )
+
+            response_lines.append(f"Order Status: {o['order_status']}")
+            response_lines.append(f"Payment Status: {o['payment_status']}")
+            response_lines.append(f"Total Amount: Rs. {o['total_amount']}")
+            response_lines.append(f"Shipping Address: {o['shipping_address']}")
+            response_lines.append("")  
+
+        return "\n".join(response_lines).strip()
+
     except Exception as e:
-        return None
+        return f"Error reading orders: {str(e)}"
 
     return "Please provide your order number so I can check the status for you."
 
@@ -131,9 +176,10 @@ def get_intent_and_response(message):
     if selected_intent == None:
         print(selected_intent)
         greetings = ["hi", "hello", "hey", "good morning", "good afternoon", "good evening"]
-        if any(word.lower() in message.lower() for word in greetings):
+        msg_clean = message.strip().lower()
+        if msg_clean in greetings:
             return "Hello! How can I help you today?"
-
+    
         prompt = f"""
         You are a sales assistant that helps customers.
         Your job is to classify the user's message into one of the following intents and generate a short helpful response.
