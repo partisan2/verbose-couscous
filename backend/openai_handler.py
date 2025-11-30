@@ -94,9 +94,6 @@ def compare_products(msg):
         return f"Error in comparing products: {str(e)}"
 
 
-# def pricing(msg):
-#     return "Could you please tell me which product's pricing you would like to know?"
-
 def order_status(msg):
     print("------order status---------") 
     try:
@@ -159,7 +156,6 @@ def order_status(msg):
     except Exception as e:
         return f"Error reading orders: {str(e)}"
 
-    return "Please provide your order number so I can check the status for you."
 
 def return_policy(msg):
     return "Our return policy allows returns within 30 days of purchase with a receipt."
@@ -183,7 +179,7 @@ def get_intent_and_response(message):
         prompt = f"""
         You are a sales assistant that helps customers.
         Your job is to classify the user's message into one of the following intents and generate a short helpful response.
-        Identify the user's intent from: ["list_products_question", "product_info", "compare_products", "order_status", "return_policy", "product_recommendations","other"].
+        Identify the user's intent from: ["list_products_question","product_category", "product_info", "compare_products", "order_status", "return_policy", "product_recommendations","other"].
         Return only the intent.
         User's message: "{message}"
         """
@@ -200,6 +196,7 @@ def get_intent_and_response(message):
 
         intent_handlers = {
             "list_products_question": list_products,
+            "product_category":productList,
             "product_info": product_info,
             "compare_products": compare_products,
             "order_status": order_status,
@@ -225,6 +222,7 @@ def extract_category(message, categories):
 
 def productList(user_msg):
     global selected_intent
+    print("----product list----")
 
     try:
         with open('./resources/productlists.json', 'r') as file:
